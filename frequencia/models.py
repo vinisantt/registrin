@@ -17,5 +17,5 @@ class Justificativa(models.Model):
         return self.conteudo
 
     conteudo = models.TextField()
-    funcionario = models.ForeignKey(Funcionario)
-    chefe = models.ForeignKey(Funcionario)
+    funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+    
