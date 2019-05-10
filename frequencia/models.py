@@ -10,7 +10,7 @@ class Funcionario(models.Model):
         data_de_nascimento = models.CharField(
             'Data de nascimento', blank=True, null=True,max_length = 128)
         chefe = models.ForeignKey("Funcionario",blank=True, null=True,verbose_name="AAA", on_delete=models.CASCADE)
-
+        confHora = models.ManyToManyField(ConfHorario, verbose_name="Horarios")
 
 class Justificativa(models.Model):
     def __str__(self):
@@ -19,3 +19,8 @@ class Justificativa(models.Model):
     conteudo = models.TextField()
     funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     
+class ConfHorario(models.Model):
+    hora = models.TimeField("Configuração de Horario (Entrada/Saída)", auto_now=False, auto_now_add=False)
+
+    def __str__(self):
+        return str(hora)
