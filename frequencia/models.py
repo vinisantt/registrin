@@ -2,6 +2,12 @@ from django.db import models
 
 # Create your models here.
 
+class ConfHorario(models.Model):
+    hEntrada = models.TimeField("Configuração de Horario (Entrada)", auto_now=False, auto_now_add=False)
+    hSaida = models.TimeField("Configuração de Horario (Saída)", auto_now=False, auto_now_add=False)
+
+    def __str__(self):
+        return "Horário de entrada: {}  Horário de saída: {}".format(str(self.hEntrada), str(self.hSaida))
 
 class Funcionario(models.Model):
         usuario = models.CharField(verbose_name="Nome de usuário blog",max_length = 128)
@@ -19,8 +25,3 @@ class Justificativa(models.Model):
     conteudo = models.TextField()
     funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     
-class ConfHorario(models.Model):
-    hora = models.TimeField("Configuração de Horario (Entrada/Saída)", auto_now=False, auto_now_add=False)
-
-    def __str__(self):
-        return str(hora)
