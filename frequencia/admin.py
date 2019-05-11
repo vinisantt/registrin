@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Funcionario)
 admin.site.register(Justificativa)
 admin.site.register(ConfHorario)
+admin.site.register(Registro_Ponto)

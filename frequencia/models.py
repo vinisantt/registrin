@@ -27,4 +27,23 @@ class Justificativa(models.Model):
 
     conteudo = models.TextField()
     funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+
+class Registro_Ponto(models.Model):
+    entrada= models.DateTimeField(verbose_name= "Horário de Entrada", 
+        auto_now_add=True,
+        )
+    saida= models.DateTimeField(verbose_name= "", 
+        auto_now_add=True,
+        )
+    ip= models.CharField("Ip da Funcionario", 
+        max_length=50, 
+        blank=True, 
+        null=True
+        )
+    #status= models.ForeignKey(Status, on_delete=models.CASCADE,verbose_name= "Status do Funcionário",)
+    funcionario= models.OneToOneField(
+        Funcionario,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        )
     
