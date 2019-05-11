@@ -17,6 +17,9 @@ class Funcionario(models.Model):
             'Data de nascimento', blank=True, null=True,max_length = 128)
         chefe = models.ForeignKey("Funcionario",blank=True, null=True,verbose_name="AAA", on_delete=models.CASCADE)
         confHora = models.ManyToManyField(ConfHorario, verbose_name="Horarios")
+        
+        def __str__(self):
+            return self.nome
 
 class Justificativa(models.Model):
     def __str__(self):
