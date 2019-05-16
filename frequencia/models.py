@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class ConfHorario(models.Model):
+    descricao= models.CharField("Descrição", max_length=120)
     hEntrada = models.TimeField("Configuração de Horario (Entrada)", auto_now=False, auto_now_add=False)
     hSaida = models.TimeField("Configuração de Horario (Saída)", auto_now=False, auto_now_add=False)
 
