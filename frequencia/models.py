@@ -17,7 +17,8 @@ class Funcionario(models.Model):
         nome = models.CharField(verbose_name="Nome Completo", max_length = 128)
         data_de_nascimento = models.CharField(
             'Data de nascimento', blank=True, null=True,max_length = 128)
-        chefe = models.ForeignKey("Funcionario",blank=True, null=True,verbose_name="Superior", on_delete=models.CASCADE)
+        chefe = models.ForeignKey("Funcionario",blank=True, null=True, / 
+            verbose_name="Superior", on_delete=models.CASCADE)
         confHora = models.ManyToManyField(ConfHorario, verbose_name="Horarios")
         
         def __str__(self):
@@ -29,6 +30,12 @@ class Justificativa(models.Model):
 
     conteudo = models.TextField()
     funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
+
+class Status(models.Model):
+    nome = models.CharField("Status",max_length=15)
+    
+    def __str__(self):
+        return self.nome
 
 class Registro_Ponto(models.Model):
     class Meta:
@@ -46,20 +53,17 @@ class Registro_Ponto(models.Model):
         blank=True, 
         null=True,
         )
-    '''
     status= models.ForeignKey(Status, 
         on_delete=models.CASCADE,
         verbose_name= "Status do Funcionário",
         blank=True, 
         null=True,
         )
-    '''
     funcionario= models.OneToOneField(Funcionario, 
         on_delete=models.CASCADE,
         primary_key=True,
         )
 
     def __str__(self):
-        return 'Registro'.format(self.funcionario.nome)
-
+        return 'Registros {}'.format(self.funcionario.nome)
 
