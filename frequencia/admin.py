@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ConfHorario, Funcionario, Justificativa, Registro_Ponto
+from .models import ConfHorario, Funcionario, Justificativa, Registro_Ponto,Status
 
 # Register your models here.
 
