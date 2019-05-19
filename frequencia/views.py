@@ -27,3 +27,12 @@ def chefeView(request,funcionario_id):
 
     except Funcionario.DoesNotExist:
         raise Http404('Funcionario não encontrada')
+
+
+def testeView(request):
+        
+        funcionarios = Funcionario.objects.all()
+
+        return render(request, 'frequencia/funcionarios.html', {'funcionarios':funcionarios})
+
+   
