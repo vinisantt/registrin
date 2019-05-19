@@ -16,3 +16,14 @@ def bateponto(request):
         now = timezone.now()
         teste = Registro_Ponto()
         
+def chefeView(request,funcionario_id):
+    try:
+        funcionario = Funcionario.objects.get(pk = funcionario_id)
+        subordinados = Funcionario.objects.filter(chefe = funcionario)
+        pontos = Registro_Ponto.objects.all()
+
+        if funcionario.chefe == None:
+                return render(request, 'frequencia/chefe.html', {'chefe':funcionario,'subordinados':subordinados,'pontos':pontos})
+
+    except Funcionario.DoesNotExist:
+        raise Http404('Funcionario não encontrada')
