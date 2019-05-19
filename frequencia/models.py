@@ -59,11 +59,13 @@ class Registro_Ponto(models.Model):
         blank=True, 
         null=True,
         )
-    funcionario= models.OneToOneField(User, 
+    funcionario= models.OneToOneField(Funcionario, 
         on_delete=models.CASCADE,
         primary_key=True,
         )
 
+
     def __str__(self):
-        return 'Registros {}'.format(self.user.first_name)
+        return self.funcionario.nome
+
 
