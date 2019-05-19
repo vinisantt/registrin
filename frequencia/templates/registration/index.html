@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+  
+  <title>Registrin</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href={% static "vendor/bootstrap/css/bootstrap.min.css" %} rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  
+  <link href={% static "css/blog-home.css" %} rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      {% if user.is_authenticated %} 
+      <a class="text-white">Olá {{ user.username }}!</a>
+      {% else %}
+      <a class="text-white" > Olá visitante!</a>
+      {% endif %}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  </nav>
+
+  <div class="utcServerTime" data-temp="1558269808"></div><div class="card shadow"><div class="card-header"><div class="row d-flex justify-content-between"><div><h1>Controle de Ponto</h1></div></div></div><div class="card-body"><div class="row d-flex align-items-center"><div class="col"><div class="d-flex card card-timetracking"><div class="card-body d-flex justify-content-center"><div class="w-100 d-flex flex-column"><div class="w-100 d-flex justify-content-center"><span id="mywork-clock-date">19 de maio de 2019</span></div><div class="w-100 d-flex justify-content-center big-clock"><span id="mywork-clock-time">12:43:38</span></div><div class="w-100 d-flex justify-content-center big-clock btn-timetracking" id="btn-timetracking"><button class="btn btn-mywork &lt;%= ((@employment.active?) &amp;&amp; (not @employment.clock_only?)) ? &#39;&#39; : &#39;disabled&#39; %&gt;" id="btn-add-timetracking"><div class="d-flex justify-content-center flex-column w-100" data-target="#timetrackingModal" data-toggle="modal"><span>Bater ponto</span></div></button></div></div></div></div></div></div><div></div></div></div><script src="./Plataforma mywork_files/timetracking-0f6b1e8aec1f1d2b3815e8962ce6f9bca825cf2c914d45e4387d30bced0c64af.js.download"></script><script src="./Plataforma mywork_files/runtime_timetracking-confirmation-5000acc40449fa7ea0be.js.download" data-turbolinks-track="reload"></script>
+          <script src="./Plataforma mywork_files/0-2d7cf917b9ebfeaadba5.chunk.js.download" data-turbolinks-track="reload"></script>
+          <script src="./Plataforma mywork_files/timetracking-confirmation-bb7181ddf64ae19064c3.chunk.js.download" data-turbolinks-track="reload"></script>
+
+  </div>
+
+ 
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src={% static "vendor/jquery/jquery.min.js" %}></script>
+  <script src={% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
