@@ -3,33 +3,16 @@
 
 {% block title %} Página de Login {% endblock %}
 
-
-<<<<<<< HEAD
-=======
-{% block main %}
-
-
 <div style="margin: 10% auto; text-align:center;">
         <h1>Loginzera do controle
         </h1>
->>>>>>> master
 
 {% block main %}
-<body class="text-center">
-    <form class="form-signin">
-        <h1>Loginzera do controle</h1>
-            <form class="md4" method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                <button type="submit" class="btn btn-dark">Login</button>
-            </form>
-<<<<<<< HEAD
+<h1>Loginzera do controle</h1>
+    <form class="md4" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit" class="btn btn-dark">Login</button>
     </form>
-</div>
-</body>
-=======
-                <br>
-
-</div>
->>>>>>> master
+        <br>
 {% endblock %}
