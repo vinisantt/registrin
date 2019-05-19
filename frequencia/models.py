@@ -41,13 +41,9 @@ class Registro_Ponto(models.Model):
         verbose_name_plural= 'Registros de Ponto'
 
     data = models.DateField(null=True, blank=True)
+    entrada= models.TimeField(verbose_name= "Entrada", null=True, blank=True)
+    saida= models.TimeField(verbose_name= "Saída", null=True, blank=True)
 
-    entrada= models.DateTimeField(verbose_name= "Entrada", 
-        auto_now_add=True,
-        )
-    saida= models.DateTimeField(verbose_name= "Saída", 
-        auto_now_add=True,
-        )
     ip= models.CharField(verbose_name="Ip do Funcionario", 
         max_length=15, 
         blank=True, 
@@ -66,6 +62,6 @@ class Registro_Ponto(models.Model):
 
 
     def __str__(self):
-        return self.funcionario.nome
+        return self.funcionario.user.username
 
 
