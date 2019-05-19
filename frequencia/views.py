@@ -9,15 +9,19 @@ from django.http import *
 from django.utils import timezone
 from .models import *
 from django.contrib.auth.models import User
+import datetime
 
 
 
 def bateponto(request):
     if request.method == 'POST':
         funci = Funcionario.objects.filter(user=request.user)
-        print("aqui", funci)
-        now = timezone.now()
-        teste = Registro_Ponto()
+        print("aqui", funci[0].confHora.all()[0].hSaida)
+        data = datetime.date.today()
+        now = datetime.datetime.now().strftime('%H:%M:%S') #timezone.now()
+        if Registro_Ponto.objects.filter(data=data) and Registro_Ponto.objects.filter(funcionario=funci[0]):
+                print("lmafao")
+        #teste = Registro_Ponto()
     return render(request, 'frequencia/timer.html')
 
 

@@ -20,7 +20,7 @@ class Funcionario(models.Model):
         confHora = models.ManyToManyField(ConfHorario, verbose_name="Horarios")
 
         def __str__(self):
-            return self.nome
+            return self.user.username
 
 class Justificativa(models.Model):
     def __str__(self):
@@ -39,6 +39,8 @@ class Registro_Ponto(models.Model):
     class Meta:
         verbose_name = 'Registro de Ponto'
         verbose_name_plural= 'Registros de Ponto'
+
+    data = models.DateField(null=True, blank=True)
 
     entrada= models.DateTimeField(verbose_name= "Entrada", 
         auto_now_add=True,
