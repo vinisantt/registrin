@@ -4,6 +4,10 @@ from django.contrib import messages
 from django.views.generic import ListView, FormView,TemplateView
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
+from django.views.generic import ListView, FormView,TemplateView
+from django.http import *
 
-class CadastroSucessoView(TemplateView):
-    template_name = 'registration/login.html'
+
+def bateponto(request):
+    return render(request,'frequencia/index.html'
+)
