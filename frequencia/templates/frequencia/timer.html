@@ -56,7 +56,10 @@
                 <h5 class="card-title" id="timer"></h5>
                 <p>It is {% now "jS F Y H:i" %}</p>
                 <div class="form-group" method="post">
-                    <button class="btn btn-secondary" type="button" action="">Registrar ponto</button>
+                    <form method="POST" novalidate>
+                      {% csrf_token %}
+                      <button class="btn btn-secondary" type="submit" action="">Registrar ponto</button>
+                    </form>
                 </div>
               </span>
             </div>

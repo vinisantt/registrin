@@ -8,14 +8,19 @@ from django.views.generic import ListView, FormView,TemplateView
 from django.http import *
 from django.utils import timezone
 from .models import *
+from django.contrib.auth.models import User
 
 
 
 def bateponto(request):
     if request.method == 'POST':
+        funci = Funcionario.objects.filter(user=request.user)
+        print("aqui", funci)
         now = timezone.now()
         teste = Registro_Ponto()
-        
+    return render(request, 'frequencia/timer.html')
+
+
 def chefeView(request,funcionario_id):
     try:
         funcionario = Funcionario.objects.get(pk = funcionario_id)
