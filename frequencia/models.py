@@ -12,13 +12,15 @@ class ConfHorario(models.Model):
     def __str__(self):
         return "{} | Horário de entrada: {}  Horário de saída: {}".format(self.descricao, str(self.hEntrada), str(self.hSaida))
 
+
 class Funcionario(models.Model):
-        usuario = models.CharField(verbose_name="Nome de usuário",max_length = 128)
+        user = models.OneToOneField(User, on_delete=models.CASCADE)
         nome = models.CharField(verbose_name="Nome Completo", max_length = 128)
-        data_de_nascimento = models.CharField('Data de nascimento', blank=True, null=True,max_length = 128)
+        birth_date = models.DateField(null=True, blank=True)
+        email = models.EmailField('E-mail',null=True,blank=True)
         chefe = models.ForeignKey("Funcionario",blank=True, null=True,verbose_name="Superior", on_delete=models.CASCADE)
         confHora = models.ManyToManyField(ConfHorario, verbose_name="Horarios")
-        
+
         def __str__(self):
             return self.nome
 
