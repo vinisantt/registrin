@@ -15,7 +15,7 @@ class ConfHorario(models.Model):
 
 class Funcionario(models.Model):
         user = models.OneToOneField(User, on_delete=models.CASCADE)
-        nome = models.CharField(verbose_name="Nome Completo", max_length = 128)
+        nome = models.CharField(verbose_name="Nome do considerado", max_length = 128)
         birth_date = models.DateField(null=True, blank=True)
         email = models.EmailField('E-mail',null=True,blank=True)
         chefe = models.ForeignKey("Funcionario",blank=True, null=True,verbose_name="Superior", on_delete=models.CASCADE)
@@ -59,11 +59,11 @@ class Registro_Ponto(models.Model):
         blank=True, 
         null=True,
         )
-    funcionario= models.OneToOneField(Funcionario, 
+    funcionario= models.OneToOneField(User, 
         on_delete=models.CASCADE,
         primary_key=True,
         )
 
     def __str__(self):
-        return 'Registros {}'.format(self.funcionario.nome)
+        return 'Registros {}'.format(self.user.first_name)
 
